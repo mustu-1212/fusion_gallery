@@ -115,7 +115,10 @@ The project has been configured as a frontend-only static website for Vercel dep
 
 ```
 Changelog:
-- July 06, 2025. Initial setup
+- July 06, 2025: Initial setup with full-stack architecture
+- July 06, 2025: Converted to frontend-only static website for Vercel deployment
+- July 06, 2025: Fixed PostCSS/Tailwind configuration for Vercel builds
+- July 06, 2025: Completed Vercel deployment configuration with successful build test
 ```
 
 ## User Preferences
