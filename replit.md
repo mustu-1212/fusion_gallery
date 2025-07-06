@@ -91,26 +91,25 @@ The application follows a monorepo pattern with shared code:
 
 ## Deployment Strategy
 
-### Build Process
-1. **Frontend**: Vite builds React app to `dist/public`
-2. **Backend**: esbuild bundles server code to `dist/index.js`
-3. **Database**: Drizzle pushes schema changes to PostgreSQL
+### Vercel Deployment (Static Website)
+The project has been configured as a frontend-only static website for Vercel deployment:
 
-### Environment Configuration
-- **DATABASE_URL**: PostgreSQL connection string (required)
-- **NODE_ENV**: Environment mode (development/production)
+1. **Build Process**: Vite builds React app to `client/dist`
+2. **Configuration**: `vercel.json` handles deployment settings
+3. **Dependencies**: Separate `client/package.json` for frontend-only deps
+4. **Static Assets**: Images served from `client/public/images`
 
-### Production Setup
-- Server serves static files from `dist/public`
-- API routes prefixed with `/api`
-- PostgreSQL database hosted on Neon
-- Express server handles both API and static file serving
+### Deployment Configuration
+- **Build Command**: `cd client && npm install && npm run build`
+- **Output Directory**: `client/dist`
+- **Framework**: Vite (auto-detected by Vercel)
+- **SPA Routing**: All routes redirect to `index.html`
 
 ### Development Workflow
-- **Hot Reload**: Vite dev server with Express integration
-- **Database**: Live schema changes with `npm run db:push`
-- **Type Checking**: Continuous TypeScript compilation
-- **Error Overlay**: Runtime error handling in development
+- **Local Development**: `cd client && npm run dev`
+- **Frontend Only**: No backend dependencies
+- **Theme Persistence**: localStorage for dark/light mode
+- **Contact Form**: mailto links (no server required)
 
 ## Changelog
 
